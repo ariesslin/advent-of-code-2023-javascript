@@ -38,3 +38,33 @@ describe("day 1 part 1", () => {
         expect(calculateSum(lines)).toBe(12 + 38 + 77 + 0 + 0 + 15);
     });
 });
+
+describe("day 1 part 2", () => {
+    test('should return 29 for "two1nine"', () => {
+        expect(calculateSum(["two1nine"])).toBe(29);
+    });
+
+    test('should return 83 for "eighttwothree"', () => {
+        expect(calculateSum(["eighttwothree"])).toBe(83);
+    });
+
+    test('should return 13 for "abcone2threexyz"', () => {
+        expect(calculateSum(["abcone2threexyz"])).toBe(13);
+    });
+
+    test('should return 24 for "xtwoone3four"', () => {
+        expect(calculateSum(["xtwoone3four"])).toBe(24);
+    });
+
+    test('should return 42 for "4nineeightseven2"', () => {
+        expect(calculateSum(["4nineeightseven2"])).toBe(42);
+    });
+
+    test('should return 14 for "zoneight234"', () => {
+        expect(calculateSum(["zoneight234"])).toBe(14);
+    });
+
+    test('should return 76 for "7pqrstsixteen"', () => {
+        expect(calculateSum(["7pqrstsixteen"])).toBe(76);
+    });
+});
