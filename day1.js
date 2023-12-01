@@ -1,34 +1,43 @@
 const fs = require("fs");
 
-function calculateSum(lines) {
+function replaceSpelledNumbers(line) {
     const digitPattern = {
-        one: "1",
-        two: "2",
-        three: "3",
-        four: "4",
-        five: "5",
-        six: "6",
-        seven: "7",
-        eight: "8",
-        nine: "9",
-        zero: "0",
+        zero: "z0o",
+        one: "o1e",
+        two: "t2o",
+        three: "t3e",
+        four: "f4r",
+        five: "f5e",
+        six: "s6x",
+        seven: "s7n",
+        eight: "e8t",
+        nine: "n9e",
     };
 
+    Object.entries(digitPattern).forEach(([word, replacement]) => {
+        line = line.replace(new RegExp(word, "g"), replacement);
+    });
+
+    return line;
+}
+
+function getNumberFromFirstAndLastDigit(line) {
+    const modifiedLine = replaceSpelledNumbers(line);
+    const digits = modifiedLine.match(/\d/g);
+    if (digits && digits.length > 0) {
+        const firstDigit = digits[0];
+        const lastDigit = digits[digits.length - 1];
+        return parseInt(firstDigit + lastDigit);
+    }
+
+    return 0;
+}
+
+function calculateSum(lines) {
     let sum = 0;
     lines.forEach((line) => {
-        // Replace spelled-out numbers with digits
-        for (const [key, value] of Object.entries(digitPattern)) {
-            line = line.replace(new RegExp(key, "g"), value);
-        }
-
-        // Extract all digits from the line
-        const digits = line.match(/\d/g);
-        if (digits && digits.length > 0) {
-            // Combine first and last digit and convert to number
-            const firstDigit = digits[0];
-            const lastDigit = digits[digits.length - 1];
-            sum += parseInt(firstDigit + lastDigit);
-        }
+        const number = getNumberFromFirstAndLastDigit(line);
+        sum += number;
     });
     return sum;
 }
@@ -47,7 +56,7 @@ function processFile(filePath) {
 }
 
 function main() {
-    const filePath = "day1.txt";
+    const filePath = "day1_part2.txt";
     const result = processFile(filePath);
     console.log("Sum of calibration values:", result);
 }

@@ -44,16 +44,16 @@ describe("day 1 part 2", () => {
         expect(calculateSum(["two1nine"])).toBe(29);
     });
 
-    test('should return 83 for "eighttwothree"', () => {
-        expect(calculateSum(["eighttwothree"])).toBe(83);
+    test('should return 83 for "eightwothree"', () => {
+        expect(calculateSum(["eightwothree"])).toBe(83);
     });
 
     test('should return 13 for "abcone2threexyz"', () => {
         expect(calculateSum(["abcone2threexyz"])).toBe(13);
     });
 
-    test('should return 24 for "xtwoone3four"', () => {
-        expect(calculateSum(["xtwoone3four"])).toBe(24);
+    test('should return 24 for "xtwone3four"', () => {
+        expect(calculateSum(["xtwone3four"])).toBe(24);
     });
 
     test('should return 42 for "4nineeightseven2"', () => {
