@@ -1,4 +1,4 @@
-const fs = require("fs");
+const processFile = require("./processFile");
 
 function replaceSpelledNumbers(line) {
     const digitPattern = {
@@ -42,22 +42,11 @@ function calculateSum(lines) {
     return sum;
 }
 
-function processFile(filePath) {
-    try {
-        const content = fs.readFileSync(filePath, "utf8");
-
-        const lines = content.split("\n");
-
-        return calculateSum(lines);
-    } catch (error) {
-        console.error("Error reading file:", error);
-        return null;
-    }
-}
-
 function main() {
-    const filePath = "day1_part2.txt";
-    const result = processFile(filePath);
+    const filePath = "day1_input.txt";
+    const lines = processFile(filePath);
+
+    const result = calculateSum(lines);
     console.log("Sum of calibration values:", result);
 }
 
