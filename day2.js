@@ -31,21 +31,8 @@ function parseGameString(gameString) {
     return { id, sets };
 }
 
-function processGameStrings(gameStrings) {
-    const games = [];
-    for (const gameString of gameStrings) {
-        const { id, sets } = parseGameString(gameString);
-
-        games.push({ id, sets });
-
-        // console.log(JSON.stringify(games, null, 2));
-    }
-
-    return games;
-}
-
 function calculatePossibleGamesSum(gameStrings) {
-    const games = processGameStrings(gameStrings);
+    const games = gameStrings.map(parseGameString);
 
     return games
         .filter((game) => game.sets.every(verifySet))
