@@ -1,6 +1,6 @@
 const calculateSum = require("./day1");
 
-describe("day 1 part 1", () => {
+describe("day 1 part 1 - calculateSum with pure digit", () => {
     it('should return 12 for a single line "1ab9c2"', () => {
         expect(calculateSum(["1abc2"])).toBe(12);
     });
@@ -39,7 +39,7 @@ describe("day 1 part 1", () => {
     });
 });
 
-describe("day 1 part 2", () => {
+describe("day 1 part 2 - calculateSum with mix of digits and digit words", () => {
     it('should return 29 for "two1nine"', () => {
         expect(calculateSum(["two1nine"])).toBe(29);
     });
